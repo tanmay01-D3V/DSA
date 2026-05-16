@@ -6,7 +6,6 @@ public:
     int data;
     Node* next;
 
-    // Constructor
     Node(int value) {
         data = value;
         next = NULL;
@@ -15,31 +14,38 @@ public:
 
 int main() {
 
-    // Creating nodes
-    Node* head = new Node(10);
-    Node* second = new Node(30);
-    Node* third = new Node(40);
+    Node* head = new Node(5);
+    Node* second = new Node(10);
+    Node* third = new Node(15);
+    Node* fourth = new Node(20);
+    Node* fifth = new Node(25);
 
     // Linking nodes
     head->next = second;
     second->next = third;
+    third->next = fourth;
+    fourth->next = fifth;
 
-    // Delete middle node (30)
+    // Delete middle node (15)
     Node* temp = head;
 
-    temp->next = third;
+    while (temp->next->data != 15) {
+        temp = temp->next;
+    }
 
-    delete second;
+    Node* tempDelete = temp->next;
+
+    temp->next = temp->next->next;
+
+    delete tempDelete;
 
     // Traversal
     temp = head;
 
     while (temp != NULL) {
-        cout << temp->data << " -> ";
+        cout << temp->data << endl;
         temp = temp->next;
     }
-
-    cout << "None";
 
     return 0;
 }

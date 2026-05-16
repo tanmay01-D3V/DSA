@@ -14,27 +14,24 @@ public:
 
 int main() {
 
-    Node* head = new Node(5);
-    Node* second = new Node(10);
-    Node* third = new Node(15);
-    Node* fourth = new Node(20);
-    Node* fifth = new Node(25);
+    // Original list
+    Node* head = new Node(10);
+    Node* second = new Node(20);
+    Node* third = new Node(30);
 
-    // Linking nodes
     head->next = second;
     second->next = third;
-    third->next = fourth;
-    fourth->next = fifth;
 
-    // Delete first node
-    Node* tempDelete = head;
-    head = head->next;
-    delete tempDelete;
+    // Insert at beginning
+    Node* newNode = new Node(5);
+
+    newNode->next = head;
+    head = newNode;
 
     // Traversal
     Node* temp = head;
 
-    while (temp != NULL) {
+    while(temp != NULL) {
         cout << temp->data << endl;
         temp = temp->next;
     }

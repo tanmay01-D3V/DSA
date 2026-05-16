@@ -17,19 +17,34 @@ public:
 int main() {
 
     // Creating nodes
-    Node* head = new Node(10);
-    Node* second = new Node(20);
+    Node* head = new Node(5);
+    Node* second = new Node(10);
+    Node* third = new Node(15);
+    Node* fourth = new Node(20);
+    Node* fifth = new Node(25);
 
     // Linking nodes
     head->next = second;
+    second->next = third;
+    third->next = fourth;
+    fourth->next = fifth;
 
-    // Delete first node
-    Node* tempDelete = head;
-    head = head->next;
-    delete tempDelete;
+    // Delete last node
+    Node* temp = head;
+
+    // Move to second-last node
+    while (temp->next->next != NULL) {
+        temp = temp->next;
+    }
+
+    // Delete last node
+    delete temp->next;
+
+    // Make second-last node point to NULL
+    temp->next = NULL;
 
     // Traversal
-    Node* temp = head;
+    temp = head;
 
     while (temp != NULL) {
         cout << temp->data << endl;
