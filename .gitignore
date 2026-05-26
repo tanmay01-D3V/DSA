@@ -1,0 +1,11 @@
+.DS_Store
+
+# Local compiler outputs.
+*.out
+*.exe
+*.o
+*.dSYM/
+
+# Scratch files used while practicing.
+scratch.cpp
+scratch
